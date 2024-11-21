@@ -10,9 +10,20 @@
 - sub-processes
 - where is the service located
 
-## PCI
+## PCI DSS
 
-Level 1 service provider
+Payment Card Industry Compliance Data Security Standard
+
+- Storing, processing or transmitting credit card information.
+- Reduce opportunities for attack
+
+### Level 1 service provider
+
+- 3rd party audits of Heroku
+  - Auditor neds to be approved by PCI SSC
+  - On site review of org's practice
+- Quarterly network scan
+- "Attestation of compliance form" written by internal staff to explain compliance efforts
 
 ## HIPAA
 
