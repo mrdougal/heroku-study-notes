@@ -26,18 +26,18 @@ The whole space is logged not the application.
 Many **more places** vs common runtime.
 Region can't be changed after creation. All apps in space are in same region
 
-| Name      | Location                |
-| --------- | ----------------------- |
-| dublin    | Dublin, Ireland         |
-| frankfurt | Frankfurt, Germany      |
-| london    | London, United Kingdom  |
-| montreal  | Montreal, Canada        |
-| mumbai    | Mumbai, India           |
-| oregon    | Oregon, United States   |
-| singapore | Singapore               |
-| sydney    | Sydney, Australia       |
-| tokyo     | Tokyo, Japan            |
-| virginia  | Virginia, United States |
+| Name        | Location                |
+| ----------- | ----------------------- |
+| `dublin`    | Dublin, Ireland         |
+| `frankfurt` | Frankfurt, Germany      |
+| `london`    | London, United Kingdom  |
+| `montreal`  | Montreal, Canada        |
+| `mumbai`    | Mumbai, India           |
+| `oregon`    | Oregon, United States   |
+| `singapore` | Singapore               |
+| `sydney`    | Sydney, Australia       |
+| `tokyo`     | Tokyo, Japan            |
+| `virginia`  | Virginia, United States |
 
 ## [Shield](./shield.md) private spaces
 
@@ -47,7 +47,7 @@ Includes additional features for high compliance.
 
 Can specify `CIDR` ("Classless Inter-Domain Routing") range for your private space to connect to on-premise or other VPCs.
 
-You can't modify CIDR values after private space is created
+You **can't modify CIDR values** after private space is created
 
 To allow access to external services like Kafka best to use `mTLS`
 

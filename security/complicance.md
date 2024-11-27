@@ -47,8 +47,8 @@ _"Processors"_ orgs entities that process data on the instruction of a controlle
 Information security, privacy protection.
 
 - `ISO-27001` - "Put in place a system to manage ricks related to data owned or handled by the company"
-- `ISO-27017` - Similar but for cloud services
-- `ISO-27018` - Personal data protection
+- `ISO-27017` - Security techniques — Code of practice for information security controls based on ISO/IEC 27002 for cloud services
+- `ISO-27018` - gives generic agreed guidance on information security categories. The standard targets public cloud services providers that act as PII processors. Its key objectives are to: Help the public cloud PII processor meet their obligations, including when they're under contract to provide public cloud services.
 
 ## SOC1, 2 & 3
 

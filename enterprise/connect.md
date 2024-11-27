@@ -1,5 +1,7 @@
 # Heroku Connect
 
+https://devcenter.heroku.com/categories/heroku-connect
+
 - Sync data from salesforce to Heroku PG
   - Can be bi-directional
 - Only syncs object and table data
@@ -15,12 +17,16 @@
 - No need to call Salesforce API
 - Can reference data from Salesforce
 
-## Polling
+## Polling Salesforce to PG
 
 ## Syncing from Salesforce into PG
 
 - 2 - 60 mins (These count towards API usage, so configure how you see fit)
-- **Polling on demand** uses streaming API (which isn't reliable indicator of change!)
+- **Standard** Polls Salesforce for changes every 10mins. (can configure from `2 - 60 mins`)
+- **Accelerated** or **Polling on demand** uses streaming api to notify of changes but…
+  - streaming isn't reliable indicator of change
+  - is available on custom object but not all standard objects
+  - no information of what changed is sent
 
 ## Syncing from PG to Salesforce
 
@@ -33,9 +39,38 @@ https://devcenter.heroku.com/articles/mapping-configuration-options#heroku-postg
 
 > In addition to the two-minute poll, your database attempts to detect new or updated records and notify Connect to initiate a poll using `pg_notify`. This notification happens at most every 10 seconds. These intervals aren’t configurable.
 
+## SOAP API
+
+Primarily used for
+
+Best for small number of records.
+This API is used when there are less than `10,000` records
+
+- initially loading data from Salesforce org for a new mapping
+- reloading data in an existing mapping
+- reading changes from Salesforce org
+
+- counting records
+- query for mapped fields
+- used when **writing to Salesforce**
+
+> SOAP API calls don't count towards [API request limits](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm). (counted for your org though)
+
+## Bulk API
+
+For loading large datasets (more than `10,000` records)
+
+- Async
+- reloading all data
+- **reading changes from salesforce**
+
+Can be used for writing on `read/write` mappings
+
+https://devcenter.heroku.com/articles/managing-heroku-connect-mappings
+
 ## Mapping
 
-- Can be read only or read/write
+- Can be read only or read/write (defaults to read only from Salesforce)
 - Mapping sync's all records
 - Validation on config
   - not a "big object" or platform event
@@ -59,6 +94,29 @@ Has limitations
 - Min polling `10 mins`
 - Trigger log is archived after 7days vs 31 days
 
+## Algorithm for merging data
+
+### "Ordered writes"
+
+Default algorithm
+
+- applies changes from the trigger log in order that they occurred
+- can be slower to sync as each change is processed separately (even if on the same record)
+- **a failed INSERT will stop the queue**. As all changes are processed in order.
+- rapid switching between updates means connect will use the SOAP api. which means less can be packaged into each update. (more calls)
+
+### "Merged writes"
+
+- condenses and reorders changes from trigger log to maximise number of records in each SOAP message.
+- better performance
+
+But
+
+- can mess up dependencies, especially if they're circular dependencies. (can make it impossible to reliably establish some relationship types)
+- use with caution if use Apex triggers and process rules. (As they're not guaranteed to see all changes made to database)
+- does attempt to resend failed inserts
+- can't use the bulk api
+
 ## Gotcha's
 
 - Doesn't work with connection pooling
@@ -69,4 +127,20 @@ Has limitations
 - Assignment rules aren't run by default when data pushed into Salesforce
 - Is an app specific add-ons so can't share across apps.
 - If delete the app, the connection is deleted and tables are dropped
-  - So backup db
+  - So backup db first
+
+## Errors
+
+If there's been an error due to Salesforce is not available (eg: due to service windows), writes are queued until available again
+
+- Otherwise manual intervention is required
+- Notifications sent to users chosen to receive them
+  https://devcenter.heroku.com/articles/heroku-connect-logs-errors#errors-with-associated-notifications
+
+View errors in `_trigger_log_` in pg
+
+```sql
+SELECT table_name, record_id, action, sf_message
+  FROM salesforce._trigger_log
+  WHERE state = 'FAILED';
+```
