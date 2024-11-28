@@ -10,7 +10,7 @@ _Enterprise only_
 - Deployment in regular manner
 - "A trust boundary"
 
-### Logging
+## Logging
 
 Does not use [logplex](../architecture/logging.md)
 
@@ -50,6 +50,15 @@ Can specify `CIDR` ("Classless Inter-Domain Routing") range for your private spa
 You **can't modify CIDR values** after private space is created
 
 To allow access to external services like Kafka best to use `mTLS`
+
+## VPN Connections
+
+there are some constraints
+
+- routes must ve statically configured
+- VPN gateway needs ot use IPSec tunnels provided by Heroku. As one might be down for maintenance
+- Our VPN gateway needs to initiate the connection
+- PG can't be accessed via VPN (need to use trusted IP allowlists)
 
 ## Can limit access
 
