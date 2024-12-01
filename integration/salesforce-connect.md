@@ -1,9 +1,11 @@
 # Salesforce connect
 
 Integrate external data sources into Salesforce and between Salesforce orgs. **(Data isn't copied)**
-Useful for backing a UI, or accessing data from external systems like SAP, Oracle etc.
 
-- OData 2.0
+Useful for backing a UI, or accessing data from external systems like SAP, Oracle etc.
+Data is retrieved "in real time"
+
+- [OData 2.0](./odata.md)
 - REST with JSON or XML
 - SOAP
 - Heroku connect expose a Heroku PPG db
@@ -17,3 +19,8 @@ Useful for backing a UI, or accessing data from external systems like SAP, Oracl
   - if getting too expensive could try [heroku connect](./heroku-connect.md), requires more work up front.
 
 - Respects user permissions (with regards to what they can see)
+
+## With Heroku
+
+- Can use Heroku connect to expose data to Salesforce connect
+- Any OData 2.0 source can be pulled into Salesforce
