@@ -1,5 +1,14 @@
 # REST API's
 
+https://trailhead.salesforce.com/content/learn/modules/api_basics/api_basics_overview
+
+`JSON` and `XML` payloads
+
+For interacting with Salesforce
+Easy to use (vs SOAP)
+
+If you want to drive a UI, beast to use User Interface API (which is restful)
+
 Every request needs **OAuth 2.0** token
 
 - need org and user with API access

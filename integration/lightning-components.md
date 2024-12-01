@@ -21,4 +21,7 @@ Aura can contain lightning components, but lightening can't contain aura
 
 ## Lightning Data Service (LDS)
 
-Read data
+Data cached across components
+Can use a "wire service" to get methods
+
+Can call [Apex](./apex.md) methods. Limits apply

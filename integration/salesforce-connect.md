@@ -11,8 +11,12 @@ Data is retrieved "in real time"
 - Heroku connect expose a Heroku PPG db
 - Heroku app can provide REST endpoints to be consumed by Salesforce connect
 - limit of `20,000` OData callouts per hour (1,000 for dev edition)
+  if you're hitting this limit need to switch to `Bulk API`, `SOAP API` or `"TreeSave API"` (can't find information on TreeSave though)
+- can "composite batch" update, and perform (up to 25 sub-requests) with one request
 
 - Can define relationships between datasets
+- Data paging
+- Search
 - Can bring up to `100` tables from single source
 - No limit on number of connections but are licenses needed for each source (can get expensive)
 

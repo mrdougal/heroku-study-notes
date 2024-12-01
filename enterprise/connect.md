@@ -39,22 +39,9 @@ https://devcenter.heroku.com/articles/mapping-configuration-options#heroku-postg
 
 > In addition to the two-minute poll, your database attempts to detect new or updated records and notify Connect to initiate a poll using `pg_notify`. This notification happens at most every 10 seconds. These intervals aren’t configurable.
 
-## SOAP API
+## SOAP Api
 
-Primarily used for
-
-Best for small number of records.
-This API is used when there are less than `10,000` records
-
-- initially loading data from Salesforce org for a new mapping
-- reloading data in an existing mapping
-- reading changes from Salesforce org
-
-- counting records
-- query for mapped fields
-- used when **writing to Salesforce**
-
-> SOAP API calls don't count towards [API request limits](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm). (counted for your org though)
+See [SOAP API](../integration/soap.md)
 
 ## Bulk API
 
