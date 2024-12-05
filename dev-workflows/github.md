@@ -33,7 +33,7 @@ Can build and deploy _if build is successful_
 - Select URL app terns. Random vs predictable
 - Permissions
   - All Heroku admin users will have access
-  - “Members” can view, deploy and operate. Can’t promote
+  - `Members` can view, deploy and operate. Can’t promote
   - Token of user who created integration is used to create apps
 - Private spaces
   - Need to specify in the “app.json”

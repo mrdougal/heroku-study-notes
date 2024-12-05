@@ -1,5 +1,7 @@
 # Compliance
 
+https://www.heroku.com/compliance
+
 - 3rd party audits of heroku systems
 - Security Privacy and Architecture "SPARC"
 
@@ -75,27 +77,20 @@ Security Management Controls, Cloud Specific Controls, Personal Data Protection
 
 Security, Availability & Confidentiality Reports
 
-- Heroku Shield Private Spaces
-  PCI, HIPA ISO, SOC
-- Shield Dynos
-  PCI, HIPA ISO, SOC
-- Shield Heroku Postgres
-  PCI, HIPA ISO, SOC
-- Shield Heroku Connect
-  HIPA ISO, SOC
-- Apache Kafka on Heroku Shield
-  HIPA ISO, SOC
-- Heroku Shield for Redis
-  HIPA ISO, SOC
-- Heroku Private Spaces
-  ISO, SOC
-- Common Runtime
-  ISO, SOC
-- Heroku Postgres
-  ISO, SOC
-- Heroku Connect
-  ISO, SOC
-- Apache Kafka on Heroku
-  ISO, SOC
-- Heroku Key-Value Store
-  ISO, SOC
+- `SOC1`, independent examination of IT controls of availability, Confidentiality and security of customer data (relevant to the financial reporting of customers)
+- `SOC2`,
+
+| **Service**             | **PCI DSS Level 1** | **HIPAA** | **ISO 27001, 27017, 27018** | **SOC 1,2,3** |
+| ----------------------- | ------------------- | --------- | --------------------------- | ------------- |
+| Shield Private Spaces   | y                   | y         | y                           | y             |
+| Shield Dynos            | y                   | y         | y                           | y             |
+| Shield Heroku PG        | y                   | y         | y                           | y             |
+| Shield Heroku Connect   | -                   | y         | y                           | y             |
+| Kafka on Heroku Shield  | -                   | y         | y                           | y             |
+| Heroku Shield for Redis | -                   | y         | y                           | y             |
+| Heroku Private spaces   | -                   | -         | y                           | y             |
+| Common runtime          | -                   | -         | y                           | y             |
+| Heroku PG               | -                   | -         | y                           | y             |
+| Heroku Connect          | -                   | -         | y                           | y             |
+| Kafka on Heroku         | -                   | -         | y                           | y             |
+| Heroku KVS              | -                   | -         | y                           | y             |

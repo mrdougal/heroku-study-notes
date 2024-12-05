@@ -4,7 +4,7 @@
   - can be `SOAP` call sending `XML`. Typically require `WSDL` (web service description language. XML) for code generation
   - can be `REST` with `JSON`
 
-Can use either but REST is recommended as it's less code and easier to interact with. SOAP is considered legacy but still relevant
+Can use either but REST is recommended as it's less code and easier to interact with. SOAP is considered legacy but still relevant.
 
 In Salesforce, need to setup API's that Apex can call (REST and SOAP)
 
