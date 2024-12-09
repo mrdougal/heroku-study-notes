@@ -21,6 +21,8 @@ Payment Card Industry Compliance Data Security Standard
 
 ### Level 1 service provider
 
+Heroku Service Provider - (get it with shield)
+
 - 3rd party audits of Heroku
   - Auditor neds to be approved by PCI SSC
   - On site review of org's practice
@@ -31,6 +33,7 @@ Payment Card Industry Compliance Data Security Standard
 
 Health Insurance portability and accountability (US)
 Contact sales for "business associate addendum" (required for HIPAA)
+Protected Health Information
 
 ## GDPR
 
@@ -47,6 +50,7 @@ _"Processors"_ orgs entities that process data on the instruction of a controlle
 ## ISO 27001, 27017, 27018
 
 Information security, privacy protection.
+Security Management Controls, Cloud Specific Controls, Personal Data Protection
 
 - `ISO-27001` - "Put in place a system to manage ricks related to data owned or handled by the company"
 - `ISO-27017` - Security techniques — Code of practice for information security controls based on ISO/IEC 27002 for cloud services
@@ -56,29 +60,12 @@ Information security, privacy protection.
 
 3rd party audit
 Internal controls relevant to financial reporting
-
----
-
-## Certifications
-
-### PCI DSS Level 1
-
-Service Provider
-
-### HIPAA
-
-Protected Health Information
-
-### ISO 27001, 27017, 27018
-
-Security Management Controls, Cloud Specific Controls, Personal Data Protection
-
-### SOC 1, 2, 3
-
 Security, Availability & Confidentiality Reports
 
 - `SOC1`, independent examination of IT controls of availability, Confidentiality and security of customer data (relevant to the financial reporting of customers)
 - `SOC2`,
+
+---
 
 | **Service**             | **PCI DSS Level 1** | **HIPAA** | **ISO 27001, 27017, 27018** | **SOC 1,2,3** |
 | ----------------------- | ------------------- | --------- | --------------------------- | ------------- |

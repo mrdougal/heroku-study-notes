@@ -23,6 +23,8 @@ Manage streams of messages/events in “topics”
 - Topics always multi-producer and multi-subscriber
 - Events in a topic can be read many times. Not deleted after consumption - can be configured. Performance with saving large datasets ok.
 
+**Consumers pull information, vs having it pushed to them**
+
 ### Topics are partitioned
 
 - Spread over number of “buckets” located on different brokers. (for scale)

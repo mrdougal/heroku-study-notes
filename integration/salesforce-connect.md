@@ -8,7 +8,7 @@ Data is retrieved "in real time"
 - [OData 2.0](./odata.md)
 - REST with JSON or XML
 - SOAP
-- Heroku connect expose a Heroku PPG db
+- Heroku connect expose a Heroku PG db
 - Heroku app can provide REST endpoints to be consumed by Salesforce connect
 - limit of `20,000` OData callouts per hour (1,000 for dev edition)
   if you're hitting this limit need to switch to `Bulk API`, `SOAP API` or `"TreeSave API"` (can't find information on TreeSave though)

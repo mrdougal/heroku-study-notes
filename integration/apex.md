@@ -18,7 +18,7 @@ use `WSDL2Apex` to generate code
 
 ## Setup Apex class as a web service
 
-Can be REST or SOAP web service.
+Can be **REST or SOAP** web service.
 
 With `REST`
 

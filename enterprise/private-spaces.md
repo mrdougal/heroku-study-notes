@@ -10,6 +10,15 @@ _Enterprise only_
 - Deployment in regular manner
 - "A trust boundary"
 
+## Internal routing
+
+https://devcenter.heroku.com/articles/internal-routing
+
+Can enable on creation. Apps with internal routing cann't receive external web traffic. (to their `web` process)
+
+- Only from other apps running in Private Space
+- Software on VPC-peered or VPN connected networks
+
 ## Logging
 
 Does not use [logplex](../architecture/logging.md)

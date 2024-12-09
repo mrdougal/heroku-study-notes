@@ -17,6 +17,25 @@ https://devcenter.heroku.com/categories/heroku-connect
 - No need to call Salesforce API
 - Can reference data from Salesforce
 
+On creation defaults to "current major release version of Salesforce API", can specify other versions on creation.
+
+## Considerations
+
+- Recommend decent connection limits and I/O performance. `standard-4` `premium-4` or `private-4` or `shield-4`
+- Network latency can become an issue. Best to co-locate Connect and PG in same region as close to Salesforce Org
+- After authenticating to an org, you can't change it late
+- API version selected during setup can't be changed later
+
+## Performance
+
+Factors that effect performance
+
+- mapping many columns on an object
+- high volume of changes
+- number of rows being synced
+- using ORM that touches or saves non-existant changes
+- db load, indexes
+
 ## Polling Salesforce to PG
 
 ## Syncing from Salesforce into PG

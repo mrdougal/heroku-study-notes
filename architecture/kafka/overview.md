@@ -8,6 +8,9 @@
 - “Consumers” read from brokers
 - “Brokers” manage streams of messages/events in “topics”
 - “Topics“ configured with range of options into “partitions” or “buckets” located on different brokers
+- "Partitions" subsets of a topic. (used to balance concerns of parallelism). Messages within a partition are ordered, but messages across partitions aren't guaranteed to be in order.
+  - Balancing act of needs of parallelism vs ordering of messages
+  - Each message in a partition has an `offset` to denote it's position in the queue
 
 Take events route to “partitions”
 
