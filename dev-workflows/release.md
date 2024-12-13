@@ -22,3 +22,12 @@ Doesn’t effect app state
 - Add-on config
 
 _Rolling on a rolled back app is a temporary fix._ (Creates a new release)
+
+
+## Custom release phase
+
+For when you need something more than just combining the build and config
+
+- sending  `css` `js` to a CDN
+- prime or invalidate a cache
+- run db migrations

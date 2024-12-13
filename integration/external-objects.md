@@ -55,3 +55,11 @@ If the type isn't supported the field isn't in the results
 
 - Case insensitive search isn't supported
 - Batch Apex isn't able to query Heroku external objects
+- "External change data capture" isn't supported (track changes to data outside of Salesforce org)
+- "Free-Text search expression" isn't supported https://help.salesforce.com/s/articleView?id=platform.odata_query_string_options.htm&type=5
+- In Global Search, results appear under "External results"
+- "Compress requests" for an external data source in Salesforce isn't supported. (gzip requests)
+- **20 sec time limit**, otherwise returns `530` response
+- Calculating total records is expensive, so paginated results are limited to 50 results. (+1 to indicate there are more records)
+- **Composite primary keys** are unsupported. (Workaround is to copy values into a column and set that column as the primary key)
+- **Partitioned PG tables** are unsupported

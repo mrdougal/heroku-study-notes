@@ -4,7 +4,8 @@ Can you have multiple VPN connections to a private space?
 
 Connecting to Google Cloud or Azure, can you use peering or does it have to be VPN connection?
 
-Heroku connect and encrypted fields, how does connect handle that data?
+## Heroku connect and encrypted fields, how does connect handle that data?
+
 
 Heroku connect, wanting to write two rows of related objects from salesforce. What limit on `external_ids` is there?
 
@@ -24,4 +25,6 @@ Logging in private space
 
 Heroku "data blocks"
 
-Connect and handling binary files
+
+
+## PG follow, vs fork

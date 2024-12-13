@@ -4,6 +4,8 @@ https://12factor.net/
 
 Methodology for "software as a service" applications
 
+Co-written by Adam Wiggins - Heroku co-founder
+
 - declarative formats for setup automation. Low barrier to entry for new team members
 - clean contract with underlying operating system = maximum portability
 - suitable for cloud = minimal need for serve admin
@@ -40,3 +42,66 @@ Dynamics of collaborators working on codebase - avoiding software erosion/rot. (
     - **tools gap**. SQLite local, PG in production
 11. **Logs** treat as event streams. `stdout`
 12. **Admin processes** only run as one-off processes eg: `rails console`
+
+
+### Concurrency
+
+Set config var `WEB_CONCURRENCY` (defaults to 1). Always test concurrency states in staging before shipping to production
+Dyno use is charged to the second
+
+### Disposability 
+
+- Minimal startup time
+- Can use a boot timeout tool to increase start time if needed
+- Process should shutdown gracefully when process gets a `SIGTERM` signal. 
+    - On web we cease to listen to `$PORT` so there are no new requests handled.
+    - Have `30s` to shutdown, otherwise will get a `SIGKILL`
+- Heroku has a hard limit of `30s` for a http request to complete.
+    - with long polling the client needs to reconnect when connection is lost
+
+
+## Logs
+
+Logs are a stream of aggregated time-ordered events
+
+ - collected from all running processes and services
+ - no routing or output concern (that's for the logdrain)
+ - no attempt to write or manage files
+ - write to `stdout` as a stream
+
+ Logplex will retain up to 1,500 lines
+
+
+## One off dynos
+
+- `heroku run`
+- close session via `exit` command
+- They run alongside other dynos
+- Usage charged like any other dyno
+- Never restart 
+- Automatically stopped after 1 hour of inactivity (input and output)
+    - when connection closed dyno is send `SIGHUP`
+
+
+#### One off dyno's in the background
+- `heroku run:detached`
+- sends output to logs vs console
+    - only startup and shutdown is recorded in the logs
+- no connection so no timeout
+- dyno will be cycled every 24 hours
+- SSH keys need to added to account if on Shield Private Space
+
+### Scheduled dynos'
+
+- Free addon to schedule one off dynos at defined time
+- No guarantee that job will run, but should be expected
+    - can run a custom clock process, if critical
+
+
+### Debugging dynos
+
+> Note on fir use `heroku run:inside`
+
+- `heroku ps:exec` makes direct connect to a production dyno. by default connects to `web.1`
+- can forward ports `heroku ps:forward 9090` (for remote debugging in VSCode)
+    - you may need to redeploy your application

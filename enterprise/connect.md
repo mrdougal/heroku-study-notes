@@ -135,6 +135,11 @@ But
 - If delete the app, the connection is deleted and tables are dropped
   - So backup db first
 
+- **Handling binary files** https://devcenter.heroku.com/articles/heroku-connect-database-tables#unsupported-data-types  In short they're not supported, as they're Base64 encoded. Connect doesn't support them as they're not supported in Bulk API queries. _(Alternatively copy the file to S3 and sync the URL)_
+
+- **Compound fields** (eg: an address is made up of multiple fields). Not possible to be mapped directly, but can map the underlying fields like postcode, city etc
+
+
 ## Errors
 
 If there's been an error due to Salesforce is not available (eg: due to service windows), writes are queued until available again
