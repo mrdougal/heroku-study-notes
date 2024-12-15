@@ -1,12 +1,22 @@
 # Continuous Integration
 
+Values stored in `app.json` (like what is used to run on Heroku)
+
+- `scripts` override commands on Heroku CI
+- `add-ons` what add-ons to use for temporary deployments
+- `env` env vars specific for test runs
+- `buildpacks` array of buildpacks
+- `formation` key-value for process type. (values are objects like quantity, size)
+
 - Tests run with every push to Github
+  - does not run on pipeline promotions
+  - all CI runs in common runtime, even if app is in a private space. (tests won't be able to reach resources in the private space)
 - Works with any pipeline
 - Connect repo via `Settings` in dashboard
 - If using common testing framework, may work out of box
   - Can configured via `scripts` section in `app.json` manifest
     - `test-setup`
-      - Install linters…
+      - Install linters
       - Seeding a db
     - `test` likely the same as what you use to test locally
       - eg: `bundle exec rspec` or `npm test`

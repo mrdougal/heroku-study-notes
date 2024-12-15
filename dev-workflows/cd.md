@@ -15,7 +15,7 @@ For staging set your env to production to reduce surprises.
 
 Code deployed into stage as a slug. The slug is promoted through stages.
 “Downstream” is term for promotion. (I think of it as going up)
-
+ 
 Make sure your migrations have an “advisory lock” to prevent concurrent migrations. (They’re application level)
 
 - If acquired in a transaction, will be released when transaction completes
