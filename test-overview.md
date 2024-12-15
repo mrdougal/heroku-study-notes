@@ -1,4 +1,26 @@
-# Overview
+# Overview of Heroku Developer Accredited Professional exam
+
+https://trailhead.salesforce.com/help?article=Heroku-Developer-AP-Exam-Guide
+
+- **68%** to pass
+- 90 min
+- 60 multiple-choice questions
+- $150 USD to sit and retake
+
+## Sections
+
+- **Apps and Runtime 12%** Dyno types. Process types. 
+- **Building and Deployment 8%**. Buildpacks & slug creation
+- **Operations 12%**. Scaling
+- **Elements 3%**. Addons, when appropriate to use
+- **CI, Pipelines, Review apps 10%**. Heroku Flows
+- **Redis, PG and Data clips 8%**. When to use Redis. PG follower vs fork. Data security.
+- **Kafka & Add-ons 8%**. Understanding of Kafka topics. Streaming comms between applications
+- **SSL certs and ACM 13%**. Design "secured compliant solution"/ SSL options. What is ACM (Automated certificate management)
+- **Heroku Connection, API and Webhooks 13%**. What are connect's features. Write algorithms
+- **12 Factor methodology 13%**
+
+# Overview (for Heroku Certification, the **big** one)
 
 https://trailhead.salesforce.com/help?article=Salesforce-Certified-Heroku-Architect-Exam-Guide
 
