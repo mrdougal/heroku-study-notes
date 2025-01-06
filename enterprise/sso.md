@@ -23,7 +23,13 @@ Others can setup in `Settings` (need to be an admin)
   - Accept SAML assertions signed under SSO certs
 - Ideally sign SAML response and assertion with SHA-256
 - Admins are emailed
+
   - 30 days, 7 days and 1 day prior to cert expiration
+
+- Once setup on SSO can't roll back to personal credentials
+- SSO session is 8 hours
+- Admins can enforce 2FA
+- `Access` tab contains list of users
 
 ## First time user logs in via SSO
 
@@ -37,3 +43,7 @@ Others can setup in `Settings` (need to be an admin)
 
 Prevents user logging into Heroku but doesn't remove the account. So CLI access may still be possible before the API keys timeout.
 Need to contact support to remove account created by automatic provisioning. :-(
+
+## Multiple IdP certs
+
+Can have up to 3 SSO certs for zero-downtime with cert changes

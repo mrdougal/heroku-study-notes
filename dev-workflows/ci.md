@@ -3,13 +3,16 @@
 Values stored in `app.json` (like what is used to run on Heroku)
 
 - `scripts` override commands on Heroku CI
+  - `postdeploy` once off setup tasks after app is created. Can be string or an object
+    - if an object `command` to run and `size` of dyno to run the command
+  - `pr-predestroy` run a cleanup task after a review app is destroyed. Value can be string or object like postdeploy
 - `add-ons` what add-ons to use for temporary deployments
 - `env` env vars specific for test runs
 - `buildpacks` array of buildpacks
 - `formation` key-value for process type. (values are objects like quantity, size)
 
 - Tests run with every push to Github
-  - does not run on pipeline promotions
+  - does not run on pipeline promotions, or direct deploys on pipeline
   - all CI runs in common runtime, even if app is in a private space. (tests won't be able to reach resources in the private space)
 - Works with any pipeline
 - Connect repo via `Settings` in dashboard
