@@ -24,15 +24,17 @@ TLS replaces SSL, what is actually used but SSL is used interchangeably
 
 Shield spaces have stricter requirements for TLS. eg: TLS 1.0 can't be used with a Shield Private Space
 
-Apps in private space need to use TLS connections with SNI extension (server name indication) Part of the TLS/SSL handshake, supported by all but the oldest browsers and OS
+Apps in private space need to use TLS connections with SNI extension (server name indication) Part of the TLS/SSL handshake, supported by all but the oldest browsers and OS. Is a workaround to the issue of servers hosting more than one website.
 
+TLS handshake is part of the **routing health metrics** for private spaces
 There's a routing health metric `healthy` or `degraded`
+A failing handshake indicates problem with router or certificate
 
 ## Enabling SSL on Heroku
 
 https://devcenter.heroku.com/articles/understanding-tls-on-heroku
 
-1. Automated Certificate Management, use unless you need a feature it doesn't support
+1. **Automated Certificate Management**, use unless you need a feature it doesn't support
 
    - provides TLS certs no additional cost
    - certs for multiple domains
@@ -41,26 +43,28 @@ https://devcenter.heroku.com/articles/understanding-tls-on-heroku
    Doesn't
 
    - support private spaces with wildcard domains
-   - org validation OV and extended validation EV not supported
+   - org validation _OV_ and extended validation _EV_ not supported
    - App with internal routing
+     - eg: apps that use trusted IP's to block access
    - Won't work with CDN's
+   - No support for IPv6 AAAA DNS records
 
 ## If you upload your own certs
 
 `APP.herokuapp.com` will stop https (http will still work)
 
-## Heroku SSL
+## Heroku SSL (default)
 
 - Upload your own SSL certs
 - Free service with any paid dynos
-- Can use wildcart or EV certs
+- Can use wildcard or EV certs
 
 Doesn't
 
 - auto-renew
 - no older browser support if they don't support SNI
 
-## SSL Endpoint
+## SSL Endpoint (is an addon)
 
 - $20 month for common runtime apps
 - Free with private spaces
@@ -68,7 +72,7 @@ Doesn't
 - endpoints auto scale, but more than 150 requests sec or 2x existing requests per sec should contact support. (Might take 2 business days)
 - Supports older browsers
 - Can disable TLS 1.0 or 1.1
-- Support for WSS (websocket security)
+- Support for WSS (WebSocket Secure)
 
 Doesn't
 
@@ -76,3 +80,7 @@ Doesn't
 - may need to contact support if spikes in traffic
 
 There are other add-ons for SSL
+
+### Enforcing SSL
+
+Redirects need to happen at the application level

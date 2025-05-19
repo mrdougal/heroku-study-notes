@@ -1,0 +1,11 @@
+- Heroku will update PG, Redis
+  - schedule maintenance window, or manually on premium plans
+- PG Rollbacks
+  - write ahead logs stored in-case of hardware failures
+- Everything encrypted at rest
+  - See [PCI](../security//complicance.md#pci-dss)
+    - Only shield PG is pci compliant
+  - See [HIPAA](../security//complicance.md#hipaa)
+    - Shielf PG, Connect, Kafka on Shield, Shield Redis are HIPAA compliant
+  - See [ISO](../security//complicance.md#iso-27001-27017-27018)
+  - See [SOC](../security//complicance.md#soc1-2--3)
