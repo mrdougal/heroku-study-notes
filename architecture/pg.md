@@ -58,7 +58,7 @@ All plans have...
 - Dataclips
 - SSL
 - Extensions
-- Encrypted at rest
+- Encrypted at rest (except for hobby)
 
 Dataclips Share queries
 Sharing DB between applications

@@ -2,6 +2,8 @@
 
 Is a walled garden for [security](https://devcenter.heroku.com/articles/private-spaces)
 
+Isolated network environment
+
 _Enterprise only_
 
 - Network isolated environment (from other apps on the platform)
@@ -130,3 +132,11 @@ With `nslookup`
 Naming convention of dynos in a space `[DYNO_NUMBER (optional)].[PROCESS_TYPE].[APP_NAME].app.localspace`
 
 - Does not provide routing stack or SSL termination
+
+## Shield databases
+
+- Can't use dataclips
+- can't use `pg:psql` from outside of the private space
+- are monitored for additional intrusion detection
+- `PGBackups` won't work
+- Access via Trusted IP's not allowed
