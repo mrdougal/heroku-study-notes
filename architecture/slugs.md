@@ -1,6 +1,6 @@
 # Slugs
 
-- Timeout 15mins to build
+- Timeout **15mins to build**
 - Max allowed size is 500Mb (after compression)
 
 Can inspect slug via heroku run bash” and use commands like “ls” or “du” (disk usage)

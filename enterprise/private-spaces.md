@@ -38,7 +38,7 @@ The whole space is logged not the application.
 - All apps (in space) consistently logged
 - Easier for auditors to ensure configured correctly and will stay that way
 - Log data is sent directly to
-- Console sessions encryped and need a registered SSH key
+- Console sessions encrypted and need a registered SSH key
 
 ## Geography
 
@@ -82,7 +82,7 @@ To allow access to external services like Kafka best to use `mTLS`
 there are some constraints
 
 - routes must be statically configured
-- VPN gateway needs ot use IPSec tunnels provided by Heroku. As one might be down for maintenance
+- VPN gateway needs to use IPSec tunnels provided by Heroku. As one might be down for maintenance
 - Our VPN gateway needs to initiate the connection
 - PG can't be accessed via VPN (need to use trusted IP allowlists)
 - Only one VPN connection (with 2 redundant tunnels) per space

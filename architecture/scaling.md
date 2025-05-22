@@ -24,13 +24,13 @@ Can submit a request if need to change this
 
 - Dashboard
   - Resources tab
-  - Edit the dyno type “web”
+  - Edit the dyno type `web`
 - CLI
-  - “Heroku ps:scale web=3"
+  - `heroku ps:scale web=3`
   - Can change multiple processes at once
-    - “Heroku ps:scale web=3 worker=5"
+    - `heroku ps:scale web=3 worker=5`
   - Can also type process type
-    - “Heroku ps:scale web=3:performance-l”
+    - `heroku ps:scale web=3:performance-l`
 
 ## Autoscaling
 
@@ -53,7 +53,7 @@ Optionally can be emailed when dyno count reaches upper limit. (Max one email a 
 - Data from past hour to calculate number of dynos
   - Doesn’t include Websocket traffic
 - One dyno added per autoscaling event
-  - Scaling events 1min apart
+  - Scaling events **1min apart**
 - Scales down less aggressively
   - 3 mins before scaling down
 - Downstream bottlenecks might be the issue, in which case scaling won’t help. Might even make it worse

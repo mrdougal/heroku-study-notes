@@ -19,6 +19,9 @@ Need to tell Heroku what runtime to use. It’ll guess based on what it finds, b
 - `worker`: Workers for queue
 - `urgentworker`: queue
 - `clock`: Singleton process (scheduled jobs)
+  - it doesn't actually run the job, it inserts it into the queue
+  - cron-like as cron isn't available on Heroku
+  - alternative to use "scheduler" plugin to run the job
 - `release`: Tasks to run before a new deployment
 
 ## Deployment

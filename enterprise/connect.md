@@ -22,8 +22,8 @@ On creation defaults to "current major release version of Salesforce API", can s
 ## Considerations
 
 - Recommend decent connection limits and I/O performance. `standard-4` `premium-4` or `private-4` or `shield-4`
-- Network latency can become an issue. Best to co-locate Connect and PG in same region as close to Salesforce Org
-- After authenticating to an org, you can't change it late
+- Network latency can become an issue. Best to co-locate **Connect and PG in same region as close to Salesforce Org**
+- After authenticating to an org, you can't change it later
 - API version selected during setup can't be changed later
 
 ## Performance
@@ -33,19 +33,14 @@ Factors that effect performance
 - mapping many columns on an object
 - high volume of changes
 - number of rows being synced
-- using ORM that touches or saves non-existant changes
+- using ORM that touches or saves non-existent changes
 - db load, indexes
-
-## Polling Salesforce to PG
 
 ## Syncing from Salesforce into PG
 
 - 2 - 60 mins (These count towards API usage, so configure how you see fit)
 - **Standard** Polls Salesforce for changes every 10mins. (can configure from `2 - 60 mins`)
-- **Accelerated** or **Polling on demand** uses streaming api to notify of changes but…
-  - streaming isn't reliable indicator of change
-  - is available on custom object but not all standard objects
-  - no information of what changed is sent
+- **Accelerated** or **Polling on demand** uses [streaming api](#streaming-api) to notify of changes
 
 ## Syncing from PG to Salesforce
 
@@ -73,6 +68,14 @@ For loading large datasets (more than `10,000` records)
 Can be used for writing on `read/write` mappings
 
 https://devcenter.heroku.com/articles/managing-heroku-connect-mappings
+
+## Streaming API
+
+There are some caveats _use this in addition to standard polling_
+
+- streaming isn't reliable indicator of change. Sends data to say when data changed, but not what changed
+- is available on custom objects but not all standard objects
+- no information of what changed is sent
 
 ## Mapping
 
@@ -104,7 +107,7 @@ Has limitations
 
 ### "Ordered writes"
 
-Default algorithm
+**Default** algorithm
 
 - applies changes from the trigger log in order that they occurred
 - can be slower to sync as each change is processed separately (even if on the same record)
@@ -133,12 +136,12 @@ But
 - Assignment rules aren't run by default when data pushed into Salesforce
 - Is an app specific add-ons so can't share across apps.
 - If delete the app, the connection is deleted and tables are dropped
+
   - So backup db first
 
-- **Handling binary files** https://devcenter.heroku.com/articles/heroku-connect-database-tables#unsupported-data-types  In short they're not supported, as they're Base64 encoded. Connect doesn't support them as they're not supported in Bulk API queries. _(Alternatively copy the file to S3 and sync the URL)_
+- **Handling binary files** https://devcenter.heroku.com/articles/heroku-connect-database-tables#unsupported-data-types In short they're not supported, as they're Base64 encoded. Connect doesn't support them as they're not supported in Bulk API queries. _(Alternatively copy the file to S3 and sync the URL)_
 
 - **Compound fields** (eg: an address is made up of multiple fields). Not possible to be mapped directly, but can map the underlying fields like postcode, city etc
-
 
 ## Errors
 

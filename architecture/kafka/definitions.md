@@ -29,6 +29,7 @@ Manage streams of messages/events in “topics”
 
 - Spread over number of “buckets” located on different brokers. (for scale)
 - Can be replicated across geo-regions or data-centers
+- in a partition the events/messages are in chronological order
 
 Take events route to “partitions”
 
@@ -63,3 +64,9 @@ Used for
 - Microservices co-ordination
   - Easier to bootstrap a service into network
   - Reduce ordering and dependences
+
+## CQRS Command Query Response Segregation
+
+> separating the write model from the read model
+
+INCOMING -> command -> events -(alter)-> state -(reads)-> query -> ANSWER

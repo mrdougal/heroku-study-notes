@@ -6,6 +6,7 @@
 - Can route traffic between the VPC's with IPv4 or v6 addresses
 - Instances in either VPC can communicate as if on same network
 - ~~Can be between cloud providers~~ (not so sure, out of the box definitely AWS)
+  - no as the connection is over the cloud providers private network
 - Can span regions (inter-region VPC peering connection)
 - Connection is at VPC level, resources can use private ip addresses to access resources.
 - Traffic remains in the private IP address space
@@ -14,6 +15,8 @@
 ## VPN tunnel
 
 If you need to cross cloud providers, eg: AWS to Azure
+Or cross the public internet so can be slower,
+Think of it as
 
 ## CIDR (Classless Inter-Domain Routing)
 

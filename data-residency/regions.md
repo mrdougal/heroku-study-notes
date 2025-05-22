@@ -1,4 +1,4 @@
-Whaen a db is provisioned data is store in region it's created.
+When a db is provisioned data is store in region it's created.
 
 - You can provision data services outside of your region although they won't be automatically networked to your space. `--region=us`
 

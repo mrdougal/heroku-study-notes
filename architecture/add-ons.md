@@ -22,3 +22,5 @@ Install via cli or marketplace
   - Returns with a url that your app uses to access the resource.
     - Eg: `MYSQL_URL=mysql://user:pass@mysqlhost.net/database`
   - Your app is then rebuilt and dynos restarted.
+
+Communication typically HTTP. TCP or a db protocol. eg: PG, Redis

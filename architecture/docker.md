@@ -19,6 +19,34 @@ Build image and push to registry
 Release the image
 `heroku container:release web`
 
+## `heroku.yml`
+
+Has 4 top level sections
+
+- `setup` define add-ons and config vars
+- `build` which `Dockerfile` to build
+- `release` specifies release phase tasks
+- `run` process types and commands to run
+
+```yaml
+setup:
+  addons:
+    - plan: heroku-postgresql
+  config:
+    S3_BUCKET: example-bucket
+  build:
+    docker:
+      web: Dockerfile
+      worker: worker/Dockerfile
+  release:
+    command:
+      - ./development.sh
+    image: worker
+  run:
+    web: bundle exec bin/start
+    worker: python worker.py
+```
+
 ## Gotchas
 
 Can’t use heroku CI to test container builds

@@ -53,7 +53,7 @@ https://devcenter.heroku.com/articles/understanding-tls-on-heroku
 
 `APP.herokuapp.com` will stop https (http will still work)
 
-## Heroku SSL (default)
+## Heroku SSL (default if not using ACM)
 
 - Upload your own SSL certs
 - Free service with any paid dynos
